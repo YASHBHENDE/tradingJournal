@@ -7,7 +7,6 @@ mongoose.connect(mongourl)
 
 const objectId = mongoose.Schema.ObjectId
 const tradesSchema = new Schema({
-    id:{type:objectId},
     userid:{type:objectId,ref:'User',},
     tradeTakeDate: { type: Date, required: true },
     tradeExitDate: { type: Date },
@@ -17,7 +16,6 @@ const tradesSchema = new Schema({
 })
 
 const userSchema = new Schema({
-    id:{type:objectId},
     email:String,
     password:string,
     trades: [{ type: Schema.Types.ObjectId, ref: "Trades" }],
