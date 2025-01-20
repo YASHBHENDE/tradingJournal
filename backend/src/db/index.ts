@@ -1,7 +1,10 @@
 import mongoose, { mongo } from "mongoose";
 import { string } from "zod";
+import dotenv from 'dotenv';
+dotenv.config()
 const { Schema } = mongoose;
 import { mongourl } from "../config";
+
 
 mongoose.connect(mongourl)
 
@@ -17,7 +20,7 @@ const tradesSchema = new Schema({
 
 const userSchema = new Schema({
     email:String,
-    password:string,
+    password:String,
     trades: [{ type: Schema.Types.ObjectId, ref: "Trades" }],
 
 })
